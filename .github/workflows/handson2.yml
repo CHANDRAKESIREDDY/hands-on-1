@@ -1,0 +1,47 @@
+name: test build and deploy
+on:
+  issues:
+    types: [opened]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install node jobs
+      uses: actions/setup-node@v3
+      with:
+        node-version: "18"
+    - name: Install dependencies
+      run: npm ci
+    - name: Run tests
+      run: npm test
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install node jobs
+      uses: actions/setup-node@v3
+      with:
+        node-version: "18"
+    - name: Install dependencies
+      run: npm ci
+    - name: Build project
+      run: npm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install node jobs
+      uses: actions/setup-node@v3
+      with:
+        node-version: "18"
+    - name: Install dependencies
+      run: npm ci
+    - name: Deploy
+      run: echo "Deploying application..."
