@@ -1,5 +1,5 @@
 name: Deployment Exercise 3
-on: [push, workflow_dispatch]
+on: ...
 jobs:
   test:
     runs-on: ubuntu-latest

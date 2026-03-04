@@ -1,4 +1,4 @@
-name: Deployment Exercise 3
+name: Cacheing test
 on: [push, workflow_dispatch]
 jobs:
   test:
