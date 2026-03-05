@@ -1,5 +1,5 @@
 name: Deployment Exercise 2
-on: ...
+# on: ...
 jobs:
   lint:
     runs-on: ubuntu-latest
