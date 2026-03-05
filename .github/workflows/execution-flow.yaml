@@ -87,4 +87,4 @@ jobs:
       - name: Output info
         run: |
           echo "Output github context"
-          echo "${{ github }}"
+          echo "${{ toJson(github) }}"
